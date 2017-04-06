@@ -1,24 +1,73 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Get All URLs
 
-Things you may want to cover:
+**GET** : `v1/crawls'
 
-* Ruby version
+## Example Request
 
-* System dependencies
+```shell
+curl -X GET -H 'Content-Type: application/json' \
+   http://localhost:3000/v1/crawls
+```
 
-* Configuration
+## Success Response
 
-* Database creation
+```json
+{
+  "success": true,
+  "message": null,
+  "data": {
+    "websites": [
+      {
+        "id": 1,
+        "url": "http://google.com",
+        "content": "Google Search",
+        "status": "done",
+        "crawl_started_at": "2017-04-06 14:02:34",
+        "crawl_completed_at": "2017-04-06 14:02:38"
+      },
+      {
+        "id": 2,
+        "url": "http://wikipedia.com",
+        "content": "Wikipedia",
+        "status": "done",
+        "crawl_started_at": "2017-04-06 14:02:34",
+        "crawl_completed_at": "2017-04-06 14:02:38"
+        "crawl_completed_at": null
+      }
+    ]
+  }
+}
 
-* Database initialization
+```
+# Submit API to crawl
 
-* How to run the test suite
+**POST** : `v1/crawls'
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Parameters
 
-* ...
+Name        | Description                               | Required/Optional
+----------- | ----------------------------------------- | -----------------
+url | Url | Required
+
+
+## Example Request
+
+```shell
+curl -X POST -H 'Content-Type: application/json' \
+  -d '{"url":"http://google.com"}
+  http://localhost:3000/v1/crawls
+```
+
+
+## Success Response
+
+```json
+{ 
+"success": true, 
+"message": "Url is stored, will be crawled shortly",
+"data": null
+}
+```
