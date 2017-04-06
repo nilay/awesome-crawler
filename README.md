@@ -34,7 +34,6 @@ curl -X GET -H 'Content-Type: application/json' \
         "status": "done",
         "crawl_started_at": "2017-04-06 14:02:34",
         "crawl_completed_at": "2017-04-06 14:02:38"
-        "crawl_completed_at": null
       }
     ]
   }
